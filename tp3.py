@@ -51,7 +51,7 @@ while jouer:
         print("plus le chiffre est haut plus de dommage vous faite")
         print("le but est de tuer tout les monstre dans votre chemin")
     elif option == 4:
-        print("c'est correct a la prochain fois")
+        print("c'est correct a la prochain fois.")
         jouer = False
 
     if jouer < 3:
