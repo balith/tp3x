@@ -10,12 +10,11 @@ def restart():
 
 
 hearts = 20
-
+n_victoir = 0
 jouer = True
 while jouer:
 
     force_de_monstre = random.randint(1, 6)
-    forcedugrandmonstre = random.randint(10, 20)
     print("")
 
     print(f"il y a un grand monstre avec difficulté de {force_de_monstre}")
@@ -34,12 +33,26 @@ while jouer:
 
         if chifredudee > force_de_monstre:
             hearts += force_de_monstre
+            n_victoir += 1
             print("le monstre est mort bravo")
             print(f"il vous reste {hearts} de vie")
+            print(f"vous avez {n_victoir} de victoir")
         elif chifredudee < force_de_monstre:
             hearts -= force_de_monstre
             print("vous avez perdu de la vie")
             print(f"il vous reste {hearts} de vie")
+         elif n_victoir < 3:
+             force_du_grand_monstre = random.randint(10, 20)
+             chifre_du_dee_de_20 = random.randint(10, 20)
+             print("vouci un plus gros dee avec 20 face pour avoir une force d'attaque plus fort")
+             print(f"vous roulez ler chiffre {chifre_du_dee_de_20} ")
+
+             if chifre_du_dee_de_20 > force_du_grand_monstre:
+                 print("le monstre est mort bravo")
+                 print(f"il vous reste {hearts + force_du_grand_monstre} de vie")
+             elif chifre_du_dee_de_20 < force_du_grand_monstre:
+                 print("vous avez perdu tout votre vie")
+                 print(f"il vous reste {hearts - force_du_grand_monstre} de vie")
     elif option == 2:
         print()
         print("vous decider de contourner le monstre")
@@ -61,12 +74,12 @@ while jouer:
     #
     #     print(f"vous roulez ler chiffre {chifredudeede20} ")
     #
-    #     if chifredudeede20 > forcedugrandmonstre:
+    #     if chifredudeede20 > force_du_grand_monstre:
     #         print("le monstre est mort bravo")
-    #         print(f"il vous reste {hearts + forcedugrandmonstre} de vie")
-    #     elif chifredudeede20 < forcedugrandmonstre:
-    #         print("vous avez perdu tout votre vie")
-    #         print(f"il vous reste {hearts - forcedugrandmonstre} de vie")
+    #         print(f"il vous reste {hearts + force_du_grand_monstre} de vie")
+    #     elif chifredudeede20 < force_du_grand_monstre:
+    #        print("vous avez perdu tout votre vie")
+    #         print(f"il vous reste {hearts - force_du_grand_monstre} de vie")
     if hearts < 0:
         if not restart():
             jouer = False
