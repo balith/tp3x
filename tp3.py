@@ -55,6 +55,7 @@ while jouer:
         option = int(input("choisisser une des quartres options en inserant le nombre qui corespond: "))
         print()
 
+
     if option == 1:
         # different si boss
         chifredudee = random.randint(1, 6)
