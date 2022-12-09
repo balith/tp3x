@@ -11,74 +11,51 @@ def restart():
 
 hearts = 20
 n_victoir = 0
+win_streaks = 0
+
 jouer = True
 while jouer:
     chifre_du_dee_de_20 = random.randint(10, 20)
-    if n_victoir > 3:
-        force_du_grand_monstre = random.randint(10, 20)
-        if chifre_du_dee_de_20 > force_du_grand_monstre:
-            chifre_du_dee_de_20 = random.randint(10, 20)
-            print("voici un plus gros dee avec 20 face pour avoir une force d'attaque plus fort")
-            print(f"vous roulez ler chiffre {chifre_du_dee_de_20} ")
-            print("le monstre est mort bravo")
-            print(f"il vous reste {hearts + force_du_grand_monstre} de vie")
-            print(f"vous avez {n_victoir} de victoire")
-        elif chifre_du_dee_de_20 < force_du_grand_monstre:
-            print("vous avez perdu tout votre vie")
-            print(f"il vous reste {hearts - force_du_grand_monstre} de vie")
-            print(f"vous avez {n_victoir} de victoir")
-
-    force_de_monstre = random.randint(1, 6)
-    print("")
-    if n_victoir <= 3:
-        print(f"il y a un monstre avec difficulté de {force_de_monstre}")
-        print("quesceque vous voulez faire")
-        print("1-attaquer le monstre")
-        print("2-contourner l'adversaire")
-        print("3-afficher les regles")
-        print("4-quiter le jeu")
+    if win_streaks == 3:
+        force_de_monstre = random.randint(10, 18)
     else:
-        print(f"il y a un grand boss monstres avec difficulté de {force_du_grand_monstre}")
-        print("quesceque vous voulez faire")
-        print("1-attaquer le monstre")
-        print("2-contourner l'adversaire")
-        print("3-afficher les regles")
-        print("4-quiter le jeu")
-        print()
+        force_de_monstre = random.randint(1, 6)
 
+    if win_streaks <= 3:
+        print(f"il y a un monstre avec difficulté de {force_de_monstre}")
+    else:
+        print(f"il y a un grand boss monstres avec difficulté de {force_de_monstre}")
+    print("quesceque vous voulez faire")
+    print("1-attaquer le monstre")
+    print("2-contourner l'adversaire")
+    print("3-afficher les regles")
+    print("4-quiter le jeu")
     option = int(input("choisisser une des quartres options en inserant le nombre qui corespond: "))
     print()
     if option == 1:
         # different si boss
-        chifredudee = random.randint(1, 6)
-
-        print(f"vous roulez ler chiffre {chifredudee} ")
+        if win_streaks == 3:
+            chifredudee = random.randint(10, 20)
+            print("voici un plus gros dee avec 20 face pour avoir une force d'attaque plus fort")
+            win_streaks = 0
+        else:
+            chifredudee = random.randint(1, 6)
+            print(f"vous roulez ler chiffre {chifredudee} ")
 
         if chifredudee >= force_de_monstre:
             hearts += force_de_monstre
             n_victoir += 1
+            win_streaks += 1
             print("le monstre est mort bravo")
             print(f"il vous reste {hearts} de vie")
-            print(f"vous avez {n_victoir} de victoir")
+            print(f"vous avez {n_victoir} de victoir\n")
         elif chifredudee < force_de_monstre:
             hearts -= force_de_monstre
+            win_streaks = 0
             print("vous avez perdu de la vie")
             print(f"il vous reste {hearts} de vie")
-            print(f"vous avez {n_victoir} de victoir")
-        # if n_victoir < 3:
-        #     force_du_grand_monstre = random.randint(10, 20)
-        #     chifre_du_dee_de_20 = random.randint(10, 20)
-        #     print("voici un plus gros dee avec 20 face pour avoir une force d'attaque plus fort")
-        #     print(f"vous roulez ler chiffre {chifre_du_dee_de_20} ")
-        #
-        #     if chifre_du_dee_de_20 > force_du_grand_monstre:
-        #         print("le monstre est mort bravo")
-        #         print(f"il vous reste {hearts + force_du_grand_monstre} de vie")
-        #         print(f"vous avez {n_victoir} de victoir")
-        #     elif chifre_du_dee_de_20 < force_du_grand_monstre:
-        #         print("vous avez perdu tout votre vie")
-        #         print(f"il vous reste {hearts - force_du_grand_monstre} de vie")
-        #         print(f"vous avez {n_victoir} de victoir")
+            print(f"vous avez {n_victoir} de victoir\n")
+
     elif option == 2:
         print()
         print("vous decider de contourner le monstre")
