@@ -12,15 +12,20 @@ def restart():
 hearts = 20
 n_victoir = 0
 win_streaks = 0
+afficher_regle = False
 
 jouer = True
 while jouer:
-    chifre_du_dee_de_20 = random.randint(10, 20)
+    if afficher_regle:
+        print("ON VIENT DAFFICHER LES RÈGLES!!!! DEAL WITH IT!")
+        afficher_regle = True
+
     if win_streaks == 3:
         force_de_monstre = random.randint(10, 18)
     else:
         force_de_monstre = random.randint(1, 6)
 
+    chifre_du_dee_de_20 = random.randint(10, 20)
     if win_streaks <= 3:
         print(f"il y a un monstre avec difficulté de {force_de_monstre}")
     else:
@@ -55,7 +60,7 @@ while jouer:
             print("vous avez perdu de la vie")
             print(f"il vous reste {hearts} de vie")
             print(f"vous avez {n_victoir} de victoir\n")
-
+        afficher_regle = True
     elif option == 2:
         print()
         print("vous decider de contourner le monstre")
@@ -63,11 +68,12 @@ while jouer:
         print("lemonstre se reveille et vous attaque just qua votre mort")
         jouer = False
     elif option == 3:
+        afficher_regle = True
         print()
-        print("vous avec 20 point de vie ")
-        print("si vous choisisser loption 1 vous aller rouler un dee")
-        print("plus le chiffre est haut plus de dommage vous faite")
-        print("le but est de tuer tout les monstre dans votre chemin")
+        print("vous avec 20 point de vie\n ")
+        print("si vous choisisser loption 1 vous aller rouler un dee\n")
+        print("plus le chiffre est haut plus de dommage vous faite\n")
+        print("le but est de tuer tout les monstre dans votre chemin\n")
     elif option == 4:
         print("c'est correct a la prochain fois.")
         jouer = False
