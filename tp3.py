@@ -60,7 +60,7 @@ while jouer:
             print("vous avez perdu de la vie")
             print(f"il vous reste {hearts} de vie")
             print(f"vous avez {n_victoir} de victoir\n")
-        afficher_regle = True
+         afficher_regle = True
     elif option == 2:
         print()
         print("vous decider de contourner le monstre")
