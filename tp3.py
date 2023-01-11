@@ -13,17 +13,17 @@ hearts = 20
 n_victoir = 0
 win_streaks = 0
 afficher_regle = False
+force_de_monstre = 0
 
 jouer = True
 while jouer:
     if afficher_regle:
-        print("ON VIENT DAFFICHER LES RÈGLES!!!! DEAL WITH IT!")
-        afficher_regle = True
-
-    if win_streaks == 3:
-        force_de_monstre = random.randint(10, 18)
+        afficher_regle = False
     else:
-        force_de_monstre = random.randint(1, 6)
+        if win_streaks == 3:
+            force_de_monstre = random.randint(10, 18)
+        else:
+            force_de_monstre = random.randint(1, 6)
 
     chifre_du_dee_de_20 = random.randint(10, 20)
     if win_streaks <= 3:
@@ -60,7 +60,6 @@ while jouer:
             print("vous avez perdu de la vie")
             print(f"il vous reste {hearts} de vie")
             print(f"vous avez {n_victoir} de victoir\n")
-         afficher_regle = True
     elif option == 2:
         print()
         print("vous decider de contourner le monstre")
